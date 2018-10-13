@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bookstore="http://ambh.com/examples/jaxb" targetNamespace="http://ambh.com/examples/jaxb" version="1.0">
+
+  <xs:element name="book" type="bookstore:book"/>
+
+  <xs:element name="bookstore" type="bookstore:bookstore"/>
+
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="author" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element minOccurs="0" name="publisher" type="xs:string"/>
+      <xs:element minOccurs="0" name="isbn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="bookstore">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="location" type="xs:string"/>
+      <xs:element minOccurs="0" name="booklist">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="book" type="bookstore:book"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
